@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    console.log(msg.id : <slot></slot>)
+    <slot></slot>
   </div>
 </template>
 
@@ -18,6 +18,5 @@ export default {
 <style scoped>
 h1 {
   text-shadow: #42b883 3px 2px;
-  /* background-color: magenta; */
 }
 </style>

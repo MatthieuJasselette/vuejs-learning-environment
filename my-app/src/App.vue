@@ -5,7 +5,9 @@
       v-for="message of messages"
       v-bind:key="message.id"
       v-bind:msg="message.content"
-      class="display">{{message.id}}</HelloWorld>
+      class="display">
+      <h4 v-if="message.id === 3" class="announcement">Coming soon, an app to choose beers !</h4>
+      </HelloWorld>
   </div>
 </template>
 
@@ -20,8 +22,8 @@ export default {
   data: function () {
     return {
       messages: [{id: 1, content: "Hello world!"},
-      {id: 2, content: "I'm hungry"},
-      {id: 3, content: "I mean, i'm always hungry"}]
+      {id: 2, content: "I'm hungry."},
+      {id: 3, content: "I 'm thirsty too, I should get a beer."}]
     }
   },
 }
@@ -38,5 +40,12 @@ export default {
 }
 .display {
   text-align: center;
+}
+.announcement{
+  width: 50%;
+  margin-left: 25%;
+  padding: 1em 0;
+  color: #42b883;
+  border: #2c3e50 solid 1px;
 }
 </style>
