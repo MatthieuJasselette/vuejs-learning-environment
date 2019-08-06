@@ -18,6 +18,7 @@
         <BeerSample
           v-for="data of datas"
           :key="data.id"
+          :id="data.id"
           :name="data.name"
           :tagline="data.tagline"
           :image_url="data.image_url"
