@@ -20,7 +20,7 @@
           :key="data.id"
           :name="data.name"
           :tagline="data.tagline"
-          :img_url="data.img_url"
+          :image_url="data.image_url"
           :description="data.description">
         </BeerSample>
       </b-row>

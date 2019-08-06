@@ -2,9 +2,6 @@
     <b-col cols="6" md="4">
         <b-card
         :title="name"
-        :img-src="img_url"
-        img-alt="Image"
-        img-top
         tag="article"
         style="max-width: 20rem;"
         class="mb-2"
@@ -12,11 +9,15 @@
         <b-card-text>
             {{ tagline }}
         </b-card-text>
-
+        <slot></slot>
         <b-button class="btn-custom">Go somewhere</b-button>
         </b-card>
     </b-col>
 </template>
+
+// :img-src="image_url"
+// img-alt="Image"
+// img-top
 
 <script>
 export default {
@@ -24,7 +25,7 @@ export default {
     props: {
         name: String,
         tagline: String,
-        img_url: String,
+        image_url: String,
         description: String
     },
 
