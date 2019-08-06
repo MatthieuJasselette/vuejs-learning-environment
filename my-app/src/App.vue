@@ -1,39 +1,57 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <img v-if="!isShown" alt="Vue logo" src="./assets/logo.png">
+    <img id="beer-logo" v-if="isShown" alt="Beer logo" src="./assets/craft-beer-logo.jpg">
     <HelloWorld
       v-for="message of messages"
       v-bind:key="message.id"
       v-bind:msg="message.content"
       class="display">
-      <h4 v-if="message.id === 3" class="announcement">Coming soon, an app to choose beers !</h4>
+      <h4 v-if="isShown && message.id === 2" class="announcement">Cheers mate !</h4>
     </HelloWorld>
-    <b-btn v-on:click="counter += 1" class="btn-custom">Click me!</b-btn>
-  <p>The button above has been clicked {{ counter }} times.</p>
-    {{ data }}
+    <b-btn v-on:click="click" class="btn-custom">
+      <span v-if="!isShown">Alfred, get me a beer !</span>
+      <span v-if="isShown">Thank you Alfred.</span>
+    </b-btn>
+    <div v-if="isShown">
+      <BeerSample
+        v-for="data of datas"
+        :key="data.id"
+        :name="data.name"
+        :tagline="data.tagline"
+        :img_url="data.img_url"
+        :description="data.description">
+      </BeerSample>
+    </div>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue';
+import BeerSample from './components/BeerSample.vue';
 import { getBeers } from './api.js';
 
 export default {
   name: 'app',
   components: {
     HelloWorld,
+    BeerSample,
   },
   data: function () {
     return {
       messages: [{id: 1, content: "Hello world!"},
-      {id: 2, content: "I'm hungry."},
-      {id: 3, content: "I 'm thirsty too, I should get a beer."}],
-      data: null,
-      counter: 0,
+      {id: 2, content: "Do you want a beer ?"}],
+      datas: null,
+      isShown: false,
+    }
+  },
+  methods: {
+    click: function () {
+      this.isShown = !this.isShown;
     }
   },
   async mounted () {
-    this.data = await getBeers();
+    this.datas = await getBeers();
   },
 }
 </script>
@@ -50,14 +68,18 @@ export default {
 .display {
   text-align: center;
 }
-.announcement{
+.announcement {
   width: 50%;
   margin-left: 25%;
-  padding: 1em 0;
+  padding: 0.25em 0;
   color: #42b883;
   border: #2c3e50 solid 1px;
 }
-.btn-custom{
+.btn-custom {
   background-color:  #2c3e50 !important;
+}
+#beer-logo {
+  height: 200px;
+  width: 200px;
 }
 </style>
