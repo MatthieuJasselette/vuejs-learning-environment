@@ -16,13 +16,13 @@
     <b-container v-if="isShown" class="mt-3">
       <b-row>
         <BeerSample
-          v-for="data of datas"
-          :key="data.id"
-          :id="data.id"
-          :name="data.name"
-          :tagline="data.tagline"
-          :image_url="data.image_url"
-          :description="data.description">
+          v-for="beer of beers"
+          :key="beer.id"
+          :id="beer.id"
+          :name="beer.name"
+          :tagline="beer.tagline"
+          :image_url="beer.image_url"
+          :description="beer.description">
         </BeerSample>
       </b-row>
     </b-container>
@@ -44,7 +44,7 @@ export default {
     return {
       messages: [{id: 1, content: "Hello world!"},
       {id: 2, content: "Do you want a beer ?"}],
-      datas: null,
+      beers: null,
       isShown: false,
     }
   },
@@ -54,7 +54,7 @@ export default {
     }
   },
   async mounted () {
-    this.datas = await getBeers();
+    this.beers = await getBeers();
   },
 }
 </script>
