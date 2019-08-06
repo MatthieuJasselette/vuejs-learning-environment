@@ -13,16 +13,18 @@
       <span v-if="!isShown">Alfred, get me a beer !</span>
       <span v-if="isShown">Thank you Alfred.</span>
     </b-btn>
-    <div v-if="isShown">
-      <BeerSample
-        v-for="data of datas"
-        :key="data.id"
-        :name="data.name"
-        :tagline="data.tagline"
-        :img_url="data.img_url"
-        :description="data.description">
-      </BeerSample>
-    </div>
+    <b-container v-if="isShown" class="mt-3">
+      <b-row>
+        <BeerSample
+          v-for="data of datas"
+          :key="data.id"
+          :name="data.name"
+          :tagline="data.tagline"
+          :img_url="data.img_url"
+          :description="data.description">
+        </BeerSample>
+      </b-row>
+    </b-container>
   </div>
 </template>
 
