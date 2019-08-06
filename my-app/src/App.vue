@@ -8,7 +8,9 @@
       class="display">
       <h4 v-if="message.id === 3" class="announcement">Coming soon, an app to choose beers !</h4>
     </HelloWorld>
-    {{data}}
+    <b-btn v-on:click="counter += 1" class="btn-custom">Click me!</b-btn>
+  <p>The button above has been clicked {{ counter }} times.</p>
+    {{ data }}
   </div>
 </template>
 
@@ -26,7 +28,8 @@ export default {
       messages: [{id: 1, content: "Hello world!"},
       {id: 2, content: "I'm hungry."},
       {id: 3, content: "I 'm thirsty too, I should get a beer."}],
-      data: null
+      data: null,
+      counter: 0,
     }
   },
   async mounted () {
@@ -53,5 +56,8 @@ export default {
   padding: 1em 0;
   color: #42b883;
   border: #2c3e50 solid 1px;
+}
+.btn-custom{
+  background-color:  #2c3e50 !important;
 }
 </style>
