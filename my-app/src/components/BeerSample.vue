@@ -1,5 +1,5 @@
 <template>
-    <b-col cols="4" md="3">
+    <b-col cols="6" md="4">
         <b-card
         :title="name"
         :img-src="img_url"
