@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img v-if="!isShown" alt="Vue logo" src="./assets/logo.png">
-    <img id="beer-logo" v-if="isShown" alt="Beer logo" src="./assets/craft-beer-logo.jpg">
+    <img id="beer-logo" v-else alt="Beer logo" src="./assets/craft-beer-logo.jpg">
     <HelloWorld
       v-for="message of messages"
       v-bind:key="message.id"
@@ -11,7 +11,7 @@
     </HelloWorld>
     <b-btn v-on:click="click" class="btn-custom">
       <span v-if="!isShown">Alfred, get me a beer !</span>
-      <span v-if="isShown">Thank you Alfred.</span>
+      <span v-else>Thank you Alfred.</span>
     </b-btn>
     <b-container v-if="isShown" class="mt-3">
       <b-row>
@@ -42,7 +42,7 @@ export default {
   },
   data: function () {
     return {
-      messages: [{id: 1, content: "Hello world!"},
+      messages: [{id: 1, content: "Hello stranger!"},
       {id: 2, content: "Do you want a beer ?"}],
       beers: null,
       isShown: false,
