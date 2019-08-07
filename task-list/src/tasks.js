@@ -1,9 +1,9 @@
 const uuidv4 = require('uuid/v4');
 
 export default class Tasks {
-    constructor(){
+    constructor(titleInput){
         this.id = uuidv4()
-        this.title = "Make a task list"
+        this.title = titleInput
         this.isCompleted = false
     }
 }
