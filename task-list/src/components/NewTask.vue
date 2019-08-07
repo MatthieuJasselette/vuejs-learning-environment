@@ -1,14 +1,14 @@
 <template>
-    <div>
+    <div class="d-flex justify-content-center">
         <b-form inline>
-            <label class="sr-only" for="inline-form-input-name">Name</label>
+            <label class="sr-only" for="inline-form-input-task">Name</label>
             <b-input
-            id="inline-form-input-name"
+            id="inline-form-input-task"
             class="mb-2 mr-sm-2 mb-sm-0"
-            placeholder="Jane Doe"
+            placeholder="stuff to do"
             ></b-input>
 
-            <b-button variant="primary">Save</b-button>
+            <b-button class="btn-green" @click="submitTask">Submit</b-button>
         </b-form>
         <slot></slot>
     </div>
@@ -23,12 +23,19 @@ export default {
     },
     data() {
         return {
-            
+
         }
     },
+    methods: {
+        submitTask() {
+            this.$emit('create-new-task', 'new task');
+        }
+    }
 }
 </script>
 
 <style scoped>
-
+.btn-green{
+    background-color: #42b883;
+}
 </style>

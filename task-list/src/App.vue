@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <NewTask></NewTask>
+    <NewTask @create-new-task="updateTasks"></NewTask>
     <h3 v-for="task of tasks" :key="task.id">{{ task.id }} | {{ task.title }} | {{ task.isCompleted }}</h3>
   </div>
 </template>
@@ -16,7 +16,14 @@ export default {
   },
   data() {
     return{
-      tasks: []
+      tasks: [],
+      // input: "new task"
+    }
+  },
+  methods: {
+    updateTasks(inputTitle) {
+      const newTask = new Tasks(inputTitle);
+      return this.tasks.push(newTask);
     }
   },
   mounted() {
