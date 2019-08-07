@@ -1,16 +1,13 @@
 <template>
-    <div>
+    <div class="d-flex justify-content-center mb-2">
         <b-form-checkbox
+        class="mt-1"
         :id="'checkbox-'+task.id"
         v-model="task.isCompleted"
         :name="'checkbox-'+task.id"
-        value=true
-        unchecked-value=false
-        @change="toggleCompletion"
         ><h5>{{ task.title }}</h5>
         </b-form-checkbox>
-        
-        <b-btn @click="removeTask">X</b-btn>
+        <b-btn class="ml-2" @click="removeTask">X</b-btn>
     </div>
 </template>
 
@@ -29,9 +26,6 @@ export default {
         removeTask() {
             this.$emit("remove-task", this.task.id);
         },
-        toggleCompletion() {
-            this.$emit("update-completion");
-        }
     }
 }
 </script>

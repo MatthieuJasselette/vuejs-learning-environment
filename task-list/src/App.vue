@@ -2,13 +2,12 @@
   <div id="app">
     <h1>Yet another todo list</h1>
     <NewTask @create-new-task="updateTasks" class="mb-3"></NewTask>
-    <h3>Tasks remaining : {{ updateCompletion() }} /{{ tasks.length }}</h3>
+    <h3>Tasks remaining : {{ updateCompletion }} /{{ tasks.length }}</h3>
     <TaskItem
       v-for="task of tasks"
       :key="task.id"
       :task="task"
       @remove-task="removeTask"
-      @update-completion="updateCompletion"
     ></TaskItem>
   </div>
 </template>
@@ -27,7 +26,6 @@ export default {
   data() {
     return{
       tasks: [],
-      completionNumber: "???"
     }
   },
   methods: {
@@ -38,26 +36,21 @@ export default {
     removeTask(taskId) {
       this.tasks = this.tasks.filter(task => task.id !== taskId);
     },
-    updateCompletion() {
-      let foo =  this.tasks.filter(task => task.isCompleted == true)
-      console.log(foo);
-      return this.tasks.filter(task => task.isCompleted == true).length
-    },  
   },
   computed: {
-          
+    updateCompletion() {
+      return  this.tasks.filter(task => task.isCompleted === true).length
+    },    
   },
   mounted() {
-    const step1 = new Tasks("Make a task list.");
-    const step2 = new Tasks("Create a form to add more tasks.");
-    const step3 = new Tasks("Add task validation.");
-    const step4 = new Tasks("Add task deletion.");
-    const step5 = new Tasks("Track task completion.");
-    this.tasks.push(step1, step2, step3, step4, step5);
+    const step1 = new Tasks("Make a task list.", true);
+    const step2 = new Tasks("Create a form to add more tasks.", true);
+    const step3 = new Tasks("Add task validation.", true);
+    const step4 = new Tasks("Add task deletion.", true);
+    const step5 = new Tasks("Track task completion.", true);
+    const step6 = new Tasks("Apply style to the list.", false);
+    this.tasks.push(step1, step2, step3, step4, step5, step6);
   },
-  updated() {
-    // this.updateCompletion();
-  }
 }
 </script>
 
