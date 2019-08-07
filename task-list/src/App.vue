@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <NewTask>I'm a slot.</NewTask>
-    <h3 v-for="task of tasks" :key="task.id">{{ task.title }}</h3>
+    <NewTask></NewTask>
+    <h3 v-for="task of tasks" :key="task.id">{{ task.id }} | {{ task.title }} | {{ task.isCompleted }}</h3>
   </div>
 </template>
 
@@ -20,8 +20,10 @@ export default {
     }
   },
   mounted() {
-    const initialTask = new Tasks("Make a task list.")
-    this.tasks.push(initialTask)
+    const initialTask = new Tasks("Make a task list.");
+    const secondTask = new Tasks("Create a form to add more tasks.");
+    this.tasks.push(initialTask, secondTask);
+    // this.tasks.push(secondTask);
   }
 }
 </script>
