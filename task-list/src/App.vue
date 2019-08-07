@@ -1,14 +1,27 @@
 <template>
   <div id="app">
-    #app goes here
+    <NewTask>I'm a slot.</NewTask>
+    <h3 v-for="task of tasks" :key="task.id">{{ task.title }}</h3>
   </div>
 </template>
 
 <script>
+import Tasks from './tasks.js';
+import NewTask from './components/NewTask.vue';
 
 export default {
   name: 'app',
   components: {
+    NewTask
+  },
+  data() {
+    return{
+      tasks: []
+    }
+  },
+  mounted() {
+    const initialTask = new Tasks("Make a task list.")
+    this.tasks.push(initialTask)
   }
 }
 </script>
