@@ -3,9 +3,8 @@
     <p></p>
     <svg class="icon" :witdh="width" :height="height">
       <use v-bind="{ 'xlink:href': '/feather-sprite.svg#' + name }" />
-      <slot name="test" />
-      />
     </svg>
+    <slot></slot>
   </div>
 </template>
 
