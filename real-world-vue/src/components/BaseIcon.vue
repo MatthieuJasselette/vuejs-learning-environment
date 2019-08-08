@@ -3,7 +3,8 @@
     <p></p>
     <svg class="icon" :witdh="width" :height="height">
       <use v-bind="{ 'xlink:href': '/feather-sprite.svg#' + name }" />
-      <slot />
+      <slot name="test" />
+      />
     </svg>
   </div>
 </template>
@@ -21,7 +22,7 @@ export default {
       default: 24
     }
   }
-}
+};
 </script>
 
 <style scoped>

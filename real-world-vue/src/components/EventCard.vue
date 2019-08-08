@@ -3,7 +3,9 @@
     <div class="event-card -shadow">
       <span class="eyebrow">@ {{ event.time }} on {{ event.date }}</span>
       <h4 class="title">{{ event.title }}</h4>
-      <BaseIcon name="users">{{ event.attendees.length }} attending</BaseIcon>/>
+      <BaseIcon name="users" slot="test"
+        >{{ event.attendees.length }} attending</BaseIcon
+      >
     </div>
   </router-link>
 </template>
@@ -18,11 +20,14 @@ export default {
         title: "Park Cleanup",
         date: "Thu Aug 08, 2019",
         time: "09.05",
-        attendees: [{ id: "aa11", name: "Lucifer" }, { id: "bb22", name: "Satan" }]
+        attendees: [
+          { id: "aa11", name: "Lucifer" },
+          { id: "bb22", name: "Satan" }
+        ]
       }
-    }
+    };
   }
-}
+};
 </script>
 
 <style scoped>
