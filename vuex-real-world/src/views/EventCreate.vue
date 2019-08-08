@@ -40,20 +40,23 @@
 // import { mapState, mapGetters } from 'vuex'
 import Datepicker from 'vuejs-datepicker'
 export default {
+  components: {
+    Datepicker
+  },
   data() {
     const times = []
     for (let i = 1; i <= 24; i++) {
       times.push(i + ':00')
     }
     return {
-      times,
+      event: this.createFreshEvent(),
       categories: this.$store.state.categories,
-      event: this.createFreshEvent()
+      times
     }
   },
   methods: {
     createEvent() {
-      this.$store.dispatch('createEvent', event)
+      this.$store.dispatch('createEvent', this.event)
     },
     createFreshEvent() {
       const user = this.$store.state.user
@@ -72,13 +75,6 @@ export default {
         attendees: []
       }
     }
-  },
-  components: {
-    Datepicker
-    // },
-    // computed: {
-    //   ...mapGetters('getEventById'),
-    //   ...mapState(['user', 'categories'])
   }
 }
 </script>

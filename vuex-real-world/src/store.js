@@ -23,7 +23,7 @@ export default new Vuex.Store({
   },
   mutations: {
     ADD_EVENT(state, event) {
-      return state.events.push(event)
+      state.events.push(event)
     }
   },
   actions: {
