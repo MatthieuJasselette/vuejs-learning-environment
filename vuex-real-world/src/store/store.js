@@ -1,13 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import EventService from '@/services/EventService.js'
 import * as user from '@/store/modules/user.js'
+import * as event from '@/store/modules/event.js'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {
-    user
+    user,
+    event
   },
   state: {
     categories: [
@@ -18,60 +19,6 @@ export default new Vuex.Store({
       'education',
       'food',
       'community'
-    ],
-    events: [],
-    eventCount: 0,
-    event: {}
-  },
-  mutations: {
-    ADD_EVENT(state, event) {
-      state.events.push(event)
-    },
-    SET_EVENTS(state, events) {
-      state.events = events
-    },
-    SET_EVENT(state, event) {
-      state.event = event
-    },
-    SET_EVENTCOUNT(state, events) {
-      // could use response.headers['x-total-count'] instead of .length
-      state.eventCount = events.length
-    }
-  },
-  actions: {
-    createEvent({ commit }, event) {
-      return EventService.postEvent(event).then(() => {
-        commit('ADD_EVENT', event)
-      })
-    },
-    fetchEvents({ commit }, { perPage, page }) {
-      EventService.getEvents(perPage, page)
-        .then(response => {
-          commit('SET_EVENTS', response.data)
-          commit('SET_EVENTCOUNT', response.data)
-        })
-        .catch(error => {
-          console.log('There was an error:', error.response)
-        })
-    },
-    fetchEvent({ commit, getters }, id) {
-      const event = getters.getEventById(id)
-      if (event) {
-        commit('SET_EVENT', event)
-      } else {
-        EventService.getEvent(id)
-          .then(response => {
-            commit('SET_EVENT', response.data)
-          })
-          .catch(error => {
-            console.log('There was an error:', error.response)
-          })
-      }
-    }
-  },
-  getters: {
-    getEventById: state => id => {
-      return state.events.find(event => event.id === id)
-    }
+    ]
   }
 })
