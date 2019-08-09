@@ -7,7 +7,7 @@
       <router-link :to="{ name: 'event-create' }">Create</router-link>
       <span class="mx-1">|</span>
       <span v-if="this.$store.state.session">
-        <strong>console.log({{ this.$store.state.user.username }})</strong>
+        <BaseIcon name="user">{{ this.$store.state.user[0].username }}</BaseIcon>
         <b-btn @click="logout" variant="outline-danger">Disconnect</b-btn>
       </span>
       <router-link v-else :to="{ name: 'user-session' }">Login</router-link>
