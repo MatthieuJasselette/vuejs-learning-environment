@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import EventCreate from './views/EventCreate.vue'
 import EventList from './views/EventList.vue'
 import EventShow from './views/EventShow.vue'
+import UserSession from './views/UserSession.vue'
 
 Vue.use(Router)
 
@@ -24,6 +25,11 @@ export default new Router({
       path: '/event/create',
       name: 'event-create',
       component: EventCreate
+    },
+    {
+      path: '/session',
+      name: 'session',
+      component: UserSession
     }
   ]
 })

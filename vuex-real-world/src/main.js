@@ -1,10 +1,15 @@
 import Vue from 'vue'
+import BootstrapVue from 'bootstrap-vue'
+
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
 import App from './App.vue'
 import router from './router'
 import store from './store'
 
+Vue.use(BootstrapVue)
 Vue.config.productionTip = false
 
 const requireComponent = require.context(

@@ -77,7 +77,7 @@ export default {
         id: id,
         user: user,
         category: '',
-        organizer: user.name,
+        organizer: user,
         title: '',
         description: '',
         location: '',

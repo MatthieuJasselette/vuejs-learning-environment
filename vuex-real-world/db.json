@@ -1,16 +1,17 @@
 {
-  "events": [
-    {
+  "events": [{
       "id": 1,
       "title": "Beach Cleanup",
       "date": "Aug 28 2018",
       "time": "10:00",
       "location": "Daytona Beach",
       "description": "Let's clean up this beach.",
-      "organizer": "Adam Jahr",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
       "category": "sustainability",
-      "attendees": [
-        {
+      "attendees": [{
           "id": "abc123",
           "name": "Adam Jahr"
         },
@@ -35,10 +36,12 @@
       "time": "12:00",
       "location": "132 N Magnolia Street, Orlando, Florida",
       "description": "We're going to clean up this park.",
-      "organizer": "Adam Jahr",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
       "category": "nature",
-      "attendees": [
-        {
+      "attendees": [{
           "id": "ghi789",
           "name": "Beth Swanson"
         },
@@ -55,10 +58,9 @@
       "time": "12:00",
       "location": "132 N Magnolia Street, Orlando, Florida",
       "description": "Help animals find new homes.",
-      "organizer": "Gregg Pollack",
+      "organizer": "",
       "category": "animal welfare",
-      "attendees": [
-        {
+      "attendees": [{
           "id": "abc123",
           "name": "Adam Jahr"
         },
@@ -79,7 +81,10 @@
         "name": "Adam Jahr"
       },
       "category": "housing",
-      "organizer": "Adam Jahr",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
       "title": "Cook a pizza",
       "description": "",
       "location": "",
@@ -87,5 +92,9 @@
       "time": "",
       "attendees": []
     }
-  ]
+  ],
+  "users": [{
+    "id": "abc123",
+    "name": "Adam Jahr"
+  }]
 }

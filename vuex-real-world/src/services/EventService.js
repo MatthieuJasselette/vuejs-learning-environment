@@ -10,6 +10,7 @@ const apiClient = axios.create({
 })
 
 export default {
+  // events
   getEvents() {
     return apiClient.get('/events')
   },
@@ -18,5 +19,12 @@ export default {
   },
   postEvent(event) {
     return apiClient.post('/events', event)
+  },
+  // users
+  postUser(user) {
+    return apiClient.post('/users', user)
+  },
+  getUser() {
+    // ???
   }
 }

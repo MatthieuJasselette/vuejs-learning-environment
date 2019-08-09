@@ -6,10 +6,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    user: {
-      id: 'abc123',
-      name: 'Adam Jahr'
-    },
+    session: false,
     categories: [
       'sustainability',
       'nature',
@@ -19,6 +16,7 @@ export default new Vuex.Store({
       'food',
       'community'
     ],
+    user: {},
     events: []
   },
   mutations: {
