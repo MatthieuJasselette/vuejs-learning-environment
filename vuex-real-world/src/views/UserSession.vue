@@ -1,16 +1,20 @@
 <template>
   <div class="d-flex flex-column">
     <h2>Login</h2>
-    <b-form inline @submi="login">
+    <b-form inline @submit.prevent="login">
       <label class="sr-only" for="inline-form-input-username">Username</label>
       <b-input-group prepend="@" class="mb-2 mr-sm-2 mb-sm-0">
-        <b-input id="inline-form-input-username" placeholder="Username"></b-input>
+        <b-input v-model="username" id="inline-form-input-username" placeholder="Username"></b-input>
       </b-input-group>
 
-      <b-button variant="primary">Save</b-button>
-      <span class="buffer mb-3"></span>
-      <UserCreate></UserCreate>
+      <b-button type="submit" variant="primary">Login</b-button>
+      <div v-if="error">
+        <strong>Error :</strong>
+        {{ error }}
+      </div>
     </b-form>
+    <span class="buffer mb-3"></span>
+    <UserCreate></UserCreate>
   </div>
 </template>
 
@@ -20,17 +24,28 @@ export default {
   components: {
     UserCreate
   },
+  data() {
+    return {
+      username: '',
+      error: ''
+    }
+  },
   methods: {
     login() {
-      this.$store
-        .dispatch('login', this.user)
-        .then(() => {
-          this.$router.push({ name: '/' })
-          this.user = this.createFreshUser()
-        })
-        .catch(() => {
-          console.log('There was a problem loging to your account.')
-        })
+      this.error = ''
+      if (this.username) {
+        this.$store
+          .dispatch('login', this.username)
+          .then(() => {
+            this.$router.push({ name: 'event-list' })
+            this.username = ''
+          })
+          .catch(error => {
+            console.log('There was a problem loging to your account.', error)
+          })
+      } else {
+        this.error = 'Please enter a valid username.'
+      }
     }
   }
 }

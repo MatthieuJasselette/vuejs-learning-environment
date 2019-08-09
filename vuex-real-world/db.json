@@ -1,5 +1,6 @@
 {
-  "events": [{
+  "events": [
+    {
       "id": 1,
       "title": "Beach Cleanup",
       "date": "Aug 28 2018",
@@ -11,7 +12,8 @@
         "name": "Adam Jahr"
       },
       "category": "sustainability",
-      "attendees": [{
+      "attendees": [
+        {
           "id": "abc123",
           "name": "Adam Jahr"
         },
@@ -41,7 +43,8 @@
         "name": "Adam Jahr"
       },
       "category": "nature",
-      "attendees": [{
+      "attendees": [
+        {
           "id": "ghi789",
           "name": "Beth Swanson"
         },
@@ -60,7 +63,8 @@
       "description": "Help animals find new homes.",
       "organizer": "",
       "category": "animal welfare",
-      "attendees": [{
+      "attendees": [
+        {
           "id": "abc123",
           "name": "Adam Jahr"
         },
@@ -93,8 +97,21 @@
       "attendees": []
     }
   ],
-  "users": [{
-    "id": "abc123",
-    "name": "Adam Jahr"
-  }]
+  "users": [
+    {
+      "id": "abc123",
+      "name": "Adam Jahr",
+      "username": "Adam"
+    },
+    {
+      "id": 69119,
+      "name": "Matthieu",
+      "username": "Mr_Satan"
+    },
+    {
+      "id": 70838,
+      "name": "bdev",
+      "username": "czqc"
+    }
+  ]
 }

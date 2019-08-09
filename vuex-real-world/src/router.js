@@ -28,7 +28,7 @@ export default new Router({
     },
     {
       path: '/session',
-      name: 'session',
+      name: 'user-session',
       component: UserSession
     }
   ]

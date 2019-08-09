@@ -6,13 +6,28 @@
       <span class="mx-1">|</span>
       <router-link :to="{ name: 'event-create' }">Create</router-link>
       <span class="mx-1">|</span>
-      <router-link :to="{ name: 'session' }">Login</router-link>
+      <span v-if="this.$store.state.session">
+        <strong>console.log({{ this.$store.state.user.username }})</strong>
+        <b-btn @click="logout" variant="outline-danger">Disconnect</b-btn>
+      </span>
+      <router-link v-else :to="{ name: 'user-session' }">Login</router-link>
     </nav>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {}
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch('logout').catch(() => {
+        console.log('There was a problem.')
+      })
+    }
+  }
+}
 </script>
 
 <style scoped>
