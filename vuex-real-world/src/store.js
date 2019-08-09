@@ -53,7 +53,7 @@ export default new Vuex.Store({
     login({ commit }, username) {
       return EventService.getUsers().then(response => {
         // WRONG, response.filter !function
-        const user = response.data.filter(user => user.username === username)
+        const user = response.data.find(user => user.username === username)
         commit('LOG_USER', user)
       })
     },
